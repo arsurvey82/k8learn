@@ -1,0 +1,23 @@
+172.31.5.153 kubemaster
+172.31.2.215 kubeworker1
+
+sudo kubeadm init --pod-network-cidr=10.10.0.0/16
+
+sudo sed -i '/swap/d' /etc/fstab
+sudo swapoff -a
+
+kv9d59.emuo9hln7vjfdhxd
+
+kubeadm join 172.31.5.153:6443 --token kv9d59.emuo9hln7vjfdhxd \
+    --discovery-token-ca-cert-hash sha256:bee326620ceaf4531ce13c7fdd195133629837fdd59918a504e71f1bc87741cc
+
+to run container :
+Name / port / volume(required for prod - not for testing)
+sudo docker run --name aruliwebserver -p 0.0.0.0:5050:80 -d -i arsurvey83/myrepo:nginxperso
+
+---------------------------------------
+1. Kubernetes - webdashboard
+
+
+3.22.217.203:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#!/login
+
